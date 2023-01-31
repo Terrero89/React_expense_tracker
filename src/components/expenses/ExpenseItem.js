@@ -6,11 +6,13 @@ import Card from "../UI/Card.js";
 
 
 const ExpenseItem = (props) => {
+  //set the start when we click on the click handler to show setTitle Value 
   const [title, setTitle] = useState(props.title)
+  
   function clickHandler() {
     setTitle('hello, dude')
-
-    setTimeout(() => setTitle(title), 2000)
+  
+    setTimeout(() => setTitle(title), 2000) // after 2 seconds, setTitle
   }
 
 

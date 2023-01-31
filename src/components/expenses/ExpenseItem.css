@@ -1,10 +1,14 @@
+/* button colors    border: 1px solid #038db8; background-color: #038db8; */
+/* main background   background-color: #dfdfdf; */
+/* text color:    color: #3a3a3a; */
 .expense-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem;
     margin: 1rem 0;
-    background-color: #4b4b4b;
+    border: solid rgb(189, 189, 189) 1px ;
+  background-color: #dfdfdf;
   }
   
   .expense-item__description {
@@ -22,15 +26,15 @@
     font-size: 1rem;
     flex: 1;
     margin: 0 1rem;
-    color: white;
+    
   }
   
   .expense-item__price {
     font-size: 1rem;
     font-weight: bold;
     color: white;
-    background-color: #40005d;
-    border: 1px solid white;
+     border: 1px solid #038db8;
+    background-color: #038db8;
     padding: 0.5rem;
     border-radius: 12px;
   }
