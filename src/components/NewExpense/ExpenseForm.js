@@ -5,35 +5,35 @@ import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
   //useState to be able to capture the information typed.
-  //*TODO: We can create an object to avoid using all inputs separately
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
-//title will be equal to each keystroke with the eevent object
-  
+  //? this way is better since yu manage state changes separately from each other
+  //?STATE OF THE INFORMATION ENTERED
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
+
+  //?HANDLERS TO RECORD THE INPUTS
   //?state that will read the values of usestate
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
-
   const amountChangeHandler = (event) => {
     setEnteredAmount(event.target.value);
   };
-
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
-
-  //? evemt handler needs a event object (browser object.)
-  const submiHandler = (event) => {
+ //?SUBMIT HANDLER THAT WILL SUBMIT THE DATA IN IT
+  const submitHandler = (event) => {
     event.preventDefault(); //event.preventDefault to do no reload when clicked
 
+    //object that contains the expense data information to be passed to next component with event handler
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: new Date(enteredDate),
+      date: new Date(enteredDate), //WILL CONVERT IT INTO A DATE OBJECT CORRECT FORMAT
     };
-    // console.log(expenseData); // no longer needed since we are executing the custom event from new expense
+
+
     props.onSaveExpenseData(expenseData); // we add expenseData as a parameter to submit the same information to the parent elements
     setEnteredTitle("");
     setEnteredAmount("");
@@ -41,7 +41,7 @@ const ExpenseForm = (props) => {
   };
 
   return (
-    <form onSubmit={submiHandler}>
+    <form onSubmit={submitHandler}>
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
@@ -50,6 +50,7 @@ const ExpenseForm = (props) => {
             value={enteredTitle}
             onChange={titleChangeHandler}
           />
+          
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
@@ -57,7 +58,7 @@ const ExpenseForm = (props) => {
             type="number"
             min="0.01"
             step="0.01"
-            value={enteredAmount}
+            value={enteredAmount} //use for two way binding so value can be seen on input field
             onChange={amountChangeHandler}
           />
         </div>
@@ -75,7 +76,7 @@ const ExpenseForm = (props) => {
       </div>
 
       <div className="new-expense__actions">
-        <button type="submit"> Add Expense</button>
+        <button type="submit">Add Expense</button>
       </div>
     </form>
   );

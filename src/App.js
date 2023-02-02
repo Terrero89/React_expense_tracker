@@ -1,13 +1,13 @@
 import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/expenses/Expenses";
 
-const App = () => {
-  const expenses = [
+  const App = () => {
+    const expenses = [
     {
       id: "e1",
       title: "Toilet Paper",
       amount: 94.12,
-      date: new Date(2020, 7, 144),
+      date: new Date(2020, 7, 14),
     },
     { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
     {
@@ -25,7 +25,7 @@ const App = () => {
   ];
 
   const addExpenseHandler = expense => {
-    console.log('in APP');
+    console.log('in APP.JS');
     console.log(expense)
   
   }
