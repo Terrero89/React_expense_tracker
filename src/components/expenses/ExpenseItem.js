@@ -9,16 +9,17 @@ const ExpenseItem = (props) => {
   //set the start when we click on the click handler to show setTitle Value  
 
   return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date} />
+    <li>
+      <Card className="expense-item">
+        <ExpenseDate date={props.date} />
 
-      <div className="expense-item__description">
-        <h2>{props.title}</h2>
+        <div className="expense-item__description">
+          <h2>{props.title}</h2>
 
-        <div className="expense-item__price" >{props.amount}</div>
-      </div>  
-
-    </Card>
+          <div className="expense-item__price">{props.amount}</div>
+        </div>
+      </Card>
+    </li>
   );
 }
 
