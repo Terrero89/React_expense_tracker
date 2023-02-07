@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 import ExpenseFilter from "./ExpenseFilter";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css";
 
 const Expenses = (props) => {
-  const [filteredYear, setFilteredYear] = useState("2020");
+  const date = new Date().getMonth()
+  const [filteredYear, setFilteredYear] = useState(date);
   //todo: USESTATE WILL BE USED IN THE COMPONENT THE STATE WILL CHANGE
   //TODO: Function that will be done from parent to reflect in child component
   //TODO: then pass function filterChangeHandler to child component ExpenseFilter to point to this function
@@ -30,6 +32,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+       <ExpensesChart expenses={filteredExpenses} />
         <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
