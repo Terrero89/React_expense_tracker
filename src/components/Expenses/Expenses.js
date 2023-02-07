@@ -7,7 +7,8 @@ import ExpensesChart from "./ExpensesChart";
 import "./Expenses.css";
 
 const Expenses = (props) => {
-  const date = new Date().getMonth()
+  const date = new Date().getFullYear().toString();
+
   const [filteredYear, setFilteredYear] = useState(date);
   //todo: USESTATE WILL BE USED IN THE COMPONENT THE STATE WILL CHANGE
   //TODO: Function that will be done from parent to reflect in child component
